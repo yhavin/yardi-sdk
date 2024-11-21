@@ -198,6 +198,7 @@ name = "yardi-sdk"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "lxml" },
     { name = "python-dotenv" },
     { name = "requests" },
     { name = "zeep" },
@@ -205,6 +206,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "lxml", specifier = ">=5.3.0" },
     { name = "python-dotenv", specifier = ">=1.0.1" },
     { name = "requests", specifier = ">=2.32.3" },
     { name = "zeep", specifier = ">=4.3.1" },
