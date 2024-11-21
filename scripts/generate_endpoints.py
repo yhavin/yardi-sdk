@@ -1,10 +1,12 @@
 import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../src")))
 import logging
 
 from zeep import Client as ZeepClient
 from dotenv import load_dotenv
 
-from utils import type_map
+from yardi_sdk.utils import type_map
 
 
 load_dotenv()
@@ -13,7 +15,7 @@ class EndpointGenerator:
     def __init__(self, wsdl: str):
         self.client = ZeepClient(wsdl=wsdl)
 
-    def generate(self, output_file: str = "./src/yardi_sdk/endpoints.py", log_level=logging.ERROR):
+    def generate(self, output_file: str = "src/yardi_sdk/endpoints.py", log_level=logging.ERROR):
         logging.getLogger("zeep").setLevel(log_level)
 
         with open(output_file, "w") as f:
