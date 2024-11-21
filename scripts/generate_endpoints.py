@@ -12,11 +12,12 @@ from yardi_sdk.utils import type_map
 load_dotenv()
 
 class EndpointGenerator:
-    def __init__(self, wsdl: str):
+    def __init__(self, wsdl: str, log_level=logging.ERROR):
+        logging.getLogger("zeep").setLevel(log_level)
+        
         self.client = ZeepClient(wsdl=wsdl)
 
-    def generate(self, output_file: str = "src/yardi_sdk/endpoints.py", log_level=logging.ERROR):
-        logging.getLogger("zeep").setLevel(log_level)
+    def generate(self, output_file: str = "src/yardi_sdk/endpoints.py"):
 
         with open(output_file, "w") as f:
             for service in self.client.wsdl.services.values():
