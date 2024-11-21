@@ -11,3 +11,6 @@ wheels/
 
 .env
 .DS_Store
+
+*.xml
+*.txt
