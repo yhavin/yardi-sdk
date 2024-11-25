@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 from yardi_sdk import type_map
 
 
-load_dotenv()
+load_dotenv(dotenv_path=".env.development")
 
 class EndpointGenerator:
     def __init__(self, wsdl: str, interface: str, log_level=logging.ERROR):
@@ -18,11 +18,22 @@ class EndpointGenerator:
         self.client = ZeepClient(wsdl=wsdl)
         self.interface = interface
 
+        self.env_mapping = {
+            "UserName": "USERNAME",
+            "Password": "PASSWORD",
+            "ServerName": "SERVER_NAME",
+            "Database": "DATABASE",
+            "Platform": "PLATFORM",
+            "InterfaceEntity": "INTERFACE_ENTITY",
+            "InterfaceLicense": "INTERFACE_LICENSE"
+        }
+
     def generate(self, output_file: str):
 
         explicitly_required_parameters = {"UserName", "Password", "ServerName", "Database", "Platform", "InterfaceEntity", "InterfaceLicense", "YardiPropertyId"}
 
         with open(output_file, "w") as f:
+            f.write("import os\n\n\n")
             for service in self.client.wsdl.services.values():
                 for port_name, port in service.ports.items():
                     if "Soap12" not in port_name:  # Avoid re-running for SOAP 1.2
@@ -30,8 +41,9 @@ class EndpointGenerator:
                             f.write(f"class {endpoint}:\n")
                             f.write(f'    """Interface: {self.interface}."""\n')
 
-                            required_parameters = []
+                            required_parameters_with_defaults = []
                             optional_parameters = []
+                            required_parameters_without_defaults = []
 
                             parameters = list(schema.input.body.type.elements)
                             if parameters:
@@ -39,23 +51,31 @@ class EndpointGenerator:
                                     is_optional = getattr(parameter_type, "min_occurs", 1) == 0
                                     parameter_type = self._map_parameter_type(parameter_type.type)
 
-                                    if parameter in explicitly_required_parameters or not is_optional:
-                                        required_parameters.append((parameter, parameter_type))
+                                    if parameter in self.env_mapping.keys():
+                                        required_parameters_with_defaults.append((parameter, parameter_type))
+                                    elif parameter in explicitly_required_parameters or not is_optional:
+                                        required_parameters_without_defaults.append((parameter, parameter_type))  
                                     else:
                                         optional_parameters.append((parameter, parameter_type))
 
                                 f.write("    def __init__(\n")
                                 f.write("        self,\n")
 
-                                for parameter, parameter_type in required_parameters:
+                                for parameter, parameter_type in required_parameters_without_defaults:
                                     f.write(f"        {parameter}: {parameter_type},\n")
+
+                                for parameter, parameter_type in required_parameters_with_defaults:
+                                    env_variable = self.env_mapping.get(parameter)
+                                    default = f'os.getenv("{env_variable}")'
+                                    f.write(f"        {parameter}: {parameter_type} = {default},\n")
+
                                 for parameter, parameter_type in optional_parameters:
                                     f.write(f"        {parameter}: {parameter_type} = None,\n")
 
                                 f.seek(f.tell() - 2)
                                 f.write("\n    ):\n")
 
-                                for parameter, _ in required_parameters + optional_parameters:
+                                for parameter, _ in required_parameters_without_defaults + optional_parameters + required_parameters_with_defaults:
                                     f.write(f"        self.{parameter} = {parameter}\n")
                             else:
                                 f.write("    def __init__(self):\n")

@@ -1,14 +1,10 @@
+import os
+
+
 class GetInvoiceRegister:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         InvoicePostMonthFrom: str,
         InvoicePostMonthTo: str,
@@ -18,6 +14,13 @@ class GetInvoiceRegister:
         InvoiceCreationToDate: str,
         InvoiceLastModifiedFromDate: str,
         InvoiceLastModifiedToDate: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         VendorId: str = None,
         InvoiceRegisterId: str = None,
         InvoiceNumber: str = None,
@@ -26,13 +29,6 @@ class GetInvoiceRegister:
         ContractId: str = None,
         BatchId: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.InvoicePostMonthFrom = InvoicePostMonthFrom
         self.InvoicePostMonthTo = InvoicePostMonthTo
@@ -49,22 +45,6 @@ class GetInvoiceRegister:
         self.JobId = JobId
         self.ContractId = ContractId
         self.BatchId = BatchId
-
-
-class CancelInvoiceRegisterBatch:
-    """Interface: Vendor Invoicing."""
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        BatchId: str,
-        InvoiceNumber: str = None
-    ):
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -72,21 +52,44 @@ class CancelInvoiceRegisterBatch:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
+
+
+class CancelInvoiceRegisterBatch:
+    """Interface: Vendor Invoicing."""
+    def __init__(
+        self,
+        BatchId: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
+        InvoiceNumber: str = None
+    ):
         self.BatchId = BatchId
         self.InvoiceNumber = InvoiceNumber
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetPropertyConfigurations:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -101,46 +104,46 @@ class GetVendor_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         VendorId: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.VendorId = VendorId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.VendorId = VendorId
 
 
 class GetVendors_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.YardiPropertyId = YardiPropertyId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
 
@@ -149,21 +152,21 @@ class GetVendorsSync:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.YardiPropertyId = YardiPropertyId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
 
@@ -172,69 +175,62 @@ class GetBudgets:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         BudgetYear: str = None,
         Book: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.BudgetYear = BudgetYear
+        self.Book = Book
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BudgetYear = BudgetYear
-        self.Book = Book
 
 
 class GetBudgets_Month:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         BudgetYear: str = None,
         Book: str = None,
         Month: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.BudgetYear = BudgetYear
+        self.Book = Book
+        self.Month = Month
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BudgetYear = BudgetYear
-        self.Book = Book
-        self.Month = Month
 
 
 class GetPayables:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         InvoicePostMonthFrom: str,
         InvoicePostMonthTo: str,
@@ -246,15 +242,15 @@ class GetPayables:
         InvoiceCreationFromDate: str,
         InvoiceCreationToDate: str,
         No3rdPartyInv: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         VendorId: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.InvoicePostMonthFrom = InvoicePostMonthFrom
         self.InvoicePostMonthTo = InvoicePostMonthTo
@@ -267,19 +263,19 @@ class GetPayables:
         self.InvoiceCreationToDate = InvoiceCreationToDate
         self.No3rdPartyInv = No3rdPartyInv
         self.VendorId = VendorId
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetPayables2:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         InvoicePostMonthFrom: str,
         InvoicePostMonthTo: str,
@@ -298,18 +294,18 @@ class GetPayables2:
         CheckFromDate: str,
         CheckToDate: str,
         UnpostedInvoicesOnly: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         VendorId: str = None,
         PayableId: str = None,
         InvoiceNumber: str = None,
         ExpenseType: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.InvoicePostMonthFrom = InvoicePostMonthFrom
         self.InvoicePostMonthTo = InvoicePostMonthTo
@@ -332,21 +328,29 @@ class GetPayables2:
         self.PayableId = PayableId
         self.InvoiceNumber = InvoiceNumber
         self.ExpenseType = ExpenseType
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetPayableByBatchId:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        BatchId: str
+        BatchId: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.BatchId = BatchId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -354,24 +358,26 @@ class GetPayableByBatchId:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BatchId = BatchId
 
 
 class GetPayableByLastModifiedDate:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         FromDate: str,
-        ToDate: str
+        ToDate: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.FromDate = FromDate
+        self.ToDate = ToDate
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -379,22 +385,19 @@ class GetPayableByLastModifiedDate:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.YardiPropertyId = YardiPropertyId
-        self.FromDate = FromDate
-        self.ToDate = ToDate
 
 
 class GetVendorInvoicingConfiguration:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -409,28 +412,21 @@ class GetPurchaseOrders:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         POCreationFromDate: str,
         POCreationToDate: str,
         OpenOnly: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PONum: str = None,
         ThirdPartyPONum: str = None,
         VendorId: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.POCreationFromDate = POCreationFromDate
         self.POCreationToDate = POCreationToDate
@@ -438,23 +434,6 @@ class GetPurchaseOrders:
         self.PONum = PONum
         self.ThirdPartyPONum = ThirdPartyPONum
         self.VendorId = VendorId
-
-
-class GetPOFromModifiedDate:
-    """Interface: Vendor Invoicing."""
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        YardiPropertyId: str,
-        POModifiedFromDate: str,
-        POModifiedToDate: str
-    ):
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -462,27 +441,51 @@ class GetPOFromModifiedDate:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
+
+
+class GetPOFromModifiedDate:
+    """Interface: Vendor Invoicing."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        POModifiedFromDate: str,
+        POModifiedToDate: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
+    ):
         self.YardiPropertyId = YardiPropertyId
         self.POModifiedFromDate = POModifiedFromDate
         self.POModifiedToDate = POModifiedToDate
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetPOChangeOrders:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         COCreationFromDate: str,
         COCreationToDate: str,
         OpenOnly: bool,
         IncludeParentPO: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PONum: str = None,
         ThirdPartyPONum: str = None,
         ChangeOrderNum: str = None,
@@ -490,13 +493,6 @@ class GetPOChangeOrders:
         ExpenseType: str = None,
         VendorId: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.COCreationFromDate = COCreationFromDate
         self.COCreationToDate = COCreationToDate
@@ -508,79 +504,87 @@ class GetPOChangeOrders:
         self.ThirdPartyCONum = ThirdPartyCONum
         self.ExpenseType = ExpenseType
         self.VendorId = VendorId
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetPOChangeOrdersFromModifiedDate:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         COModifiedFromDate: str,
         COModifiedToDate: str,
         IncludeParentPO: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PONum: str = None,
         ThirdPartyPONum: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.COModifiedFromDate = COModifiedFromDate
         self.COModifiedToDate = COModifiedToDate
         self.IncludeParentPO = IncludeParentPO
         self.PONum = PONum
         self.ThirdPartyPONum = ThirdPartyPONum
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class ImportVendors_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         XmlDoc: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.XmlDoc = XmlDoc
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.XmlDoc = XmlDoc
 
 
 class ImportPayable_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PayableDoc: str = None
     ):
+        self.PayableDoc = PayableDoc
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -588,22 +592,22 @@ class ImportPayable_Login:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.PayableDoc = PayableDoc
 
 
 class ImportPurchaseOrder:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PurchaseOrder: str = None
     ):
+        self.PurchaseOrder = PurchaseOrder
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -611,22 +615,22 @@ class ImportPurchaseOrder:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.PurchaseOrder = PurchaseOrder
 
 
 class ImportPOChangeOrders:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PurchaseChangeOrderXML: str = None
     ):
+        self.PurchaseChangeOrderXML = PurchaseChangeOrderXML
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -634,22 +638,22 @@ class ImportPOChangeOrders:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.PurchaseChangeOrderXML = PurchaseChangeOrderXML
 
 
 class ImportCheck_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         CheckDoc: str = None
     ):
+        self.CheckDoc = CheckDoc
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -657,22 +661,22 @@ class ImportCheck_Login:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.CheckDoc = CheckDoc
 
 
 class ImportJournalEntries:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         JournalDoc: str = None
     ):
+        self.JournalDoc = JournalDoc
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -680,22 +684,22 @@ class ImportJournalEntries:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.JournalDoc = JournalDoc
 
 
 class ExportChartOfAccounts:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PropertyId: str = None
     ):
+        self.PropertyId = PropertyId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -703,20 +707,19 @@ class ExportChartOfAccounts:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.PropertyId = PropertyId
 
 
 class GetBookNames:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -731,13 +734,6 @@ class GetJournalEntries:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         BatchId: str,
         JournalEntryPostMonthFrom: str,
@@ -746,15 +742,15 @@ class GetJournalEntries:
         JournalEntryToDate: str,
         JournalCreationFromDate: str,
         JournalCreationToDate: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         Book: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.BatchId = BatchId
         self.JournalEntryPostMonthFrom = JournalEntryPostMonthFrom
@@ -764,19 +760,19 @@ class GetJournalEntries:
         self.JournalCreationFromDate = JournalCreationFromDate
         self.JournalCreationToDate = JournalCreationToDate
         self.Book = Book
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetJournalEntries2:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         BatchId: str,
         JournalEntryPostMonthFrom: str,
@@ -785,15 +781,15 @@ class GetJournalEntries2:
         JournalEntryToDate: str,
         JournalCreationFromDate: str,
         JournalCreationToDate: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         Book: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
         self.BatchId = BatchId
         self.JournalEntryPostMonthFrom = JournalEntryPostMonthFrom
@@ -803,19 +799,26 @@ class GetJournalEntries2:
         self.JournalCreationFromDate = JournalCreationFromDate
         self.JournalCreationToDate = JournalCreationToDate
         self.Book = Book
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetPurchaseOrderSupport:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -830,41 +833,43 @@ class OpenPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
         YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         BatchDescription: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.BatchDescription = BatchDescription
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BatchDescription = BatchDescription
 
 
 class AddPayablesToBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         BatchId: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         TransactionXml: str = None
     ):
+        self.BatchId = BatchId
+        self.TransactionXml = TransactionXml
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -872,23 +877,22 @@ class AddPayablesToBatch:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BatchId = BatchId
-        self.TransactionXml = TransactionXml
 
 
 class ReviewPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        BatchId: str
+        BatchId: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.BatchId = BatchId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -896,22 +900,22 @@ class ReviewPayableBatch:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BatchId = BatchId
 
 
 class PostPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        BatchId: str
+        BatchId: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.BatchId = BatchId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -919,20 +923,19 @@ class PostPayableBatch:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BatchId = BatchId
 
 
 class ReturnOpenPayableBatches:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -947,15 +950,16 @@ class CancelPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        BatchId: str
+        BatchId: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
+        self.BatchId = BatchId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -963,24 +967,26 @@ class CancelPayableBatch:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.BatchId = BatchId
 
 
 class GetJobCost:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         IncludeChangeOrderOnly: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         JobId: str = None,
         ContractId: str = None
     ):
+        self.IncludeChangeOrderOnly = IncludeChangeOrderOnly
+        self.JobId = JobId
+        self.ContractId = ContractId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -988,27 +994,28 @@ class GetJobCost:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.IncludeChangeOrderOnly = IncludeChangeOrderOnly
-        self.JobId = JobId
-        self.ContractId = ContractId
 
 
 class GetJobCostByProperty:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         IncludeChangeOrderOnly: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PropertyId: str = None,
         JobId: str = None,
         ContractId: str = None
     ):
+        self.IncludeChangeOrderOnly = IncludeChangeOrderOnly
+        self.PropertyId = PropertyId
+        self.JobId = JobId
+        self.ContractId = ContractId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1016,27 +1023,26 @@ class GetJobCostByProperty:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.IncludeChangeOrderOnly = IncludeChangeOrderOnly
-        self.PropertyId = PropertyId
-        self.JobId = JobId
-        self.ContractId = ContractId
 
 
 class GetRetentionAmounts:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         JobId: str = None,
         ContractId: str = None,
         VendorId: str = None
     ):
+        self.JobId = JobId
+        self.ContractId = ContractId
+        self.VendorId = VendorId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1044,26 +1050,26 @@ class GetRetentionAmounts:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.JobId = JobId
-        self.ContractId = ContractId
-        self.VendorId = VendorId
 
 
 class ReversePayable:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         PostMonth: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         InvoiceNumber: str = None,
         InvoiceID: str = None
     ):
+        self.PostMonth = PostMonth
+        self.InvoiceNumber = InvoiceNumber
+        self.InvoiceID = InvoiceID
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1071,22 +1077,19 @@ class ReversePayable:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.PostMonth = PostMonth
-        self.InvoiceNumber = InvoiceNumber
-        self.InvoiceID = InvoiceID
 
 
 class GetSegmentInformation:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -1101,18 +1104,22 @@ class GetInvoiceRegisterImage:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         PageNo: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         InvoiceID: str = None,
         InvoiceNumber: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.PageNo = PageNo
+        self.InvoiceID = InvoiceID
+        self.InvoiceNumber = InvoiceNumber
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1120,28 +1127,28 @@ class GetInvoiceRegisterImage:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.YardiPropertyId = YardiPropertyId
-        self.PageNo = PageNo
-        self.InvoiceID = InvoiceID
-        self.InvoiceNumber = InvoiceNumber
 
 
 class GetInvoiceImage:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         PageNo: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         PayableID: str = None,
         InvoiceNumber: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.PageNo = PageNo
+        self.PayableID = PayableID
+        self.InvoiceNumber = InvoiceNumber
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1149,30 +1156,32 @@ class GetInvoiceImage:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.YardiPropertyId = YardiPropertyId
-        self.PageNo = PageNo
-        self.PayableID = PayableID
-        self.InvoiceNumber = InvoiceNumber
 
 
 class ImportInvoiceRegisterImage:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         YardiPropertyId: str,
         InvoiceDate: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         InvoiceRegisterID: str = None,
         InvoiceNumber: str = None,
         VendorId: str = None,
         XMLDoc: str = None
     ):
+        self.YardiPropertyId = YardiPropertyId
+        self.InvoiceDate = InvoiceDate
+        self.InvoiceRegisterID = InvoiceRegisterID
+        self.InvoiceNumber = InvoiceNumber
+        self.VendorId = VendorId
+        self.XMLDoc = XMLDoc
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1180,25 +1189,19 @@ class ImportInvoiceRegisterImage:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.YardiPropertyId = YardiPropertyId
-        self.InvoiceDate = InvoiceDate
-        self.InvoiceRegisterID = InvoiceRegisterID
-        self.InvoiceNumber = InvoiceNumber
-        self.VendorId = VendorId
-        self.XMLDoc = XMLDoc
 
 
 class GetBankInformation:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE")
     ):
         self.UserName = UserName
         self.Password = Password
@@ -1213,13 +1216,6 @@ class GetCheckInvoice:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         CheckPostMonthFrom: str,
         CheckPostMonthTo: str,
         CheckClearedFromDate: str,
@@ -1230,16 +1226,16 @@ class GetCheckInvoice:
         CheckToDate: str,
         JoinCheckFiltersWithOr: bool,
         UnprintedChecksOnly: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         CheckBatchId: str = None,
         MarkedFor: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.CheckPostMonthFrom = CheckPostMonthFrom
         self.CheckPostMonthTo = CheckPostMonthTo
         self.CheckClearedFromDate = CheckClearedFromDate
@@ -1252,19 +1248,19 @@ class GetCheckInvoice:
         self.UnprintedChecksOnly = UnprintedChecksOnly
         self.CheckBatchId = CheckBatchId
         self.MarkedFor = MarkedFor
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class GetCheckBatchInvoices:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
         CheckPostMonthFrom: str,
         CheckPostMonthTo: str,
         CheckClearedFromDate: str,
@@ -1275,17 +1271,17 @@ class GetCheckBatchInvoices:
         CheckToDate: str,
         JoinCheckFiltersWithOr: bool,
         UnprintedChecksOnly: bool,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         CheckBatchId: str = None,
         MarkedFor: str = None,
         ExpenseType: str = None
     ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
         self.CheckPostMonthFrom = CheckPostMonthFrom
         self.CheckPostMonthTo = CheckPostMonthTo
         self.CheckClearedFromDate = CheckClearedFromDate
@@ -1299,21 +1295,29 @@ class GetCheckBatchInvoices:
         self.CheckBatchId = CheckBatchId
         self.MarkedFor = MarkedFor
         self.ExpenseType = ExpenseType
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
 
 
 class SetCheckInvoiceAsPrinted:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         CheckBatchId: str = None
     ):
+        self.CheckBatchId = CheckBatchId
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1321,22 +1325,22 @@ class SetCheckInvoiceAsPrinted:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.CheckBatchId = CheckBatchId
 
 
 class ImportInvoiceRegister:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
+        UserName: str = os.getenv("USERNAME"),
+        Password: str = os.getenv("PASSWORD"),
+        ServerName: str = os.getenv("SERVER_NAME"),
+        Database: str = os.getenv("DATABASE"),
+        Platform: str = os.getenv("PLATFORM"),
+        InterfaceEntity: str = os.getenv("INTERFACE_ENTITY"),
+        InterfaceLicense: str = os.getenv("INTERFACE_LICENSE"),
         InvoicRegisterDoc: str = None
     ):
+        self.InvoicRegisterDoc = InvoicRegisterDoc
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
@@ -1344,7 +1348,6 @@ class ImportInvoiceRegister:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.InvoicRegisterDoc = InvoicRegisterDoc
 
 
 class GetVersionNumber:
