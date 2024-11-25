@@ -17,27 +17,30 @@ class Client:
         transport = Transport(session=session)
         self.client = ZeepClient(wsdl=wsdl, transport=transport)
 
-    def call(self, endpoint):
+    def call(self, endpoint, raw_output=False):
         endpoint_name = endpoint.__class__.__name__
 
         if not hasattr(self.client.service, endpoint_name):
-            raise ValueError(f"Endpoint '{endpoint_name} not found.")
+            raise ValueError(f"Endpoint '{endpoint_name}' not found.")
         
         parameters = {key: value for key, value in endpoint.__dict__.items()}
 
         try:
             response = getattr(self.client.service, endpoint_name)(**parameters)
-            return Response(response)
+            return Response(response, raw_output=raw_output)
         except Exception as e:
             raise Exception(f"Error calling {endpoint_name}: {e}")
         
 
 class Response:
-    def __init__(self, response: ET._Element):
+    def __init__(self, response: ET._Element, raw_output: bool):
         if not isinstance(response, ET._Element):
             raise ValueError("Response is not an lxml Element instance.")
         
         self.response = response
+
+        if not raw_output:
+            self._remove_namespaces()
         
     def _remove_namespaces(self):
         for element in self.response.iter():
@@ -45,7 +48,7 @@ class Response:
                 element.tag = element.tag.split("}", 1)[1]
         return self.response
     
-    def dump(self, *, path=None):
+    def dump(self, path=None):
         xml_string = ET.tostring(self.response, encoding="utf-8", method="xml").decode("utf-8")
         pretty_xml = minidom.parseString(xml_string).toprettyxml()
 
@@ -55,7 +58,7 @@ class Response:
         else:
             print(pretty_xml)
 
-    def inspect(self, *, path=None):
+    def inspect(self, path=None):
         structure = self._generate_structure(self.response)
 
         if path:
@@ -75,9 +78,16 @@ class Response:
         sample_value = xml_element.text.strip() if xml_element.text and xml_element.text.strip() else None
         value_string = f": {sample_value}" if sample_value else ""
 
+        if xml_element.getparent() is not None:
+            is_list = len(xml_element.getparent().findall(xml_element.tag)) > 1
+        else:
+            is_list = False
+
+        list_marker = " [List]" if is_list else ""
+
         if current_path not in seen_paths:
             seen_paths.add(current_path)
-            structure.append(f"{indent}{xml_element.tag}{value_string}")
+            structure.append(f"{indent}{xml_element.tag}{list_marker}{value_string}")
 
         for child in xml_element:
             structure.extend(self._generate_structure(child, current_path, level + 1, seen_paths))
