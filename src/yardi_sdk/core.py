@@ -1,3 +1,9 @@
+"""
+Core classes for Yardi SOAP client and API responses.
+
+Author: Yakir Havin
+"""
+
 import logging
 import lxml.etree as ET
 from xml.dom import minidom
@@ -18,6 +24,7 @@ class Client:
         self.client = ZeepClient(wsdl=wsdl, transport=transport)
 
     def call(self, endpoint, raw_output=False):
+        """Call a Yardi endpoint."""
         endpoint_name = endpoint.__class__.__name__
 
         if not hasattr(self.client.service, endpoint_name):
@@ -43,12 +50,14 @@ class Response:
             self._remove_namespaces()
         
     def _remove_namespaces(self):
+        """Remove namespaces from XML response."""
         for element in self.response.iter():
             if "}" in element.tag:
                 element.tag = element.tag.split("}", 1)[1]
         return self.response
     
     def dump(self, path=None):
+        """Pretty-print XML response to terminal or file."""
         xml_string = ET.tostring(self.response, encoding="utf-8", method="xml").decode("utf-8")
         pretty_xml = minidom.parseString(xml_string).toprettyxml()
 
@@ -59,6 +68,7 @@ class Response:
             print(pretty_xml)
 
     def inspect(self, path=None):
+        """Print XML object structure to terminal or file."""
         structure = self._generate_structure(self.response)
 
         if path:
@@ -68,6 +78,7 @@ class Response:
             print("\n".join(structure))
 
     def _generate_structure(self, xml_element: ET._Element, parent_path="", level=0, seen_paths=None):
+        """Recursively generate XML object structure (with a list marker for repeating objects)."""
         if seen_paths is None:
             seen_paths = set()
 
