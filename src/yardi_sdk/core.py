@@ -8,6 +8,7 @@ Author: Yakir Havin
 import logging
 import lxml.etree as ET
 from xml.dom import minidom
+import re
 
 from zeep import Client as ZeepClient
 from zeep.transports import Transport
@@ -19,17 +20,19 @@ class Client:
     def __init__(self, wsdl: str, username: str, password: str, log_level=logging.ERROR):
         logging.getLogger("zeep").setLevel(log_level)
 
+        self.wsdl = wsdl
         session = Session()
         session.auth = HTTPBasicAuth(username, password)
         transport = Transport(session=session)
-        self.client = ZeepClient(wsdl=wsdl, transport=transport)
+        self.client = ZeepClient(wsdl=self.wsdl, transport=transport)
 
     def call(self, endpoint, raw_output=False):
         """Call a Yardi endpoint."""
         endpoint_name = endpoint.__class__.__name__
 
         if not hasattr(self.client.service, endpoint_name):
-            raise ValueError(f"Endpoint '{endpoint_name}' not found.")
+            masked_wsdl = self._mask_wsdl(self.wsdl)
+            raise ValueError(f"Endpoint '{endpoint_name}' not found. You may be using the wrong WSDL interface (using {masked_wsdl})")
         
         parameters = {key: value for key, value in endpoint.__dict__.items()}
 
@@ -38,6 +41,11 @@ class Client:
             return Response(response, raw_output=raw_output)
         except Exception as e:
             raise Exception(f"Error calling {endpoint_name}: {e}")
+        
+    @staticmethod
+    def _mask_wsdl(wsdl: str):
+        """Mask account section of WSDL URL."""
+        return re.sub(r"(https?://[^/]+/)[^/]+", r"\1*****", wsdl)
         
 
 class Response:
