@@ -4,6 +4,7 @@ Core classes for Yardi SOAP client and API responses.
 Author: Yakir Havin
 """
 
+
 import logging
 import lxml.etree as ET
 from xml.dom import minidom
