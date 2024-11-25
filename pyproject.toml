@@ -1,7 +1,7 @@
 [project]
 name = "yardi-sdk"
 version = "0.1.0"
-description = "Add your description here"
+description = "Yardi SDK for Python"
 readme = "README.md"
 authors = [
     { name = "yhavin", email = "y.havin@gmail.com" }
