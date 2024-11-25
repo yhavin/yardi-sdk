@@ -10,6 +10,7 @@ wheels/
 .venv
 
 .env
+.env.development
 .DS_Store
 
 *.xml
