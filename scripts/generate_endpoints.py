@@ -6,7 +6,7 @@ import logging
 from zeep import Client as ZeepClient
 from dotenv import load_dotenv
 
-from yardi_sdk.utils import type_map
+from yardi_sdk import type_map
 
 
 load_dotenv()
