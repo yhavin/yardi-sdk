@@ -1,362 +1,5 @@
-class GetResidentTransaction_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        TenantId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.TenantId = TenantId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentTransactions_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentTransactions_ByChargeDate_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        FromDate: str,
-        ToDate: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.FromDate = FromDate
-        self.ToDate = ToDate
-
-
-class GetResidentTransactions_ByApplicationDate_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        FromDate: str,
-        ToDate: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.FromDate = FromDate
-        self.ToDate = ToDate
-
-
-class GetResidentCharges_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentCharges_ByDate_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        FromDate: str,
-        ToDate: str,
-        FilterByAppDate: bool
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.FromDate = FromDate
-        self.ToDate = ToDate
-        self.FilterByAppDate = FilterByAppDate
-
-
-class GetResidentPrepays_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentPrepays_ByDate_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        FromDate: str,
-        ToDate: str,
-        FilterByAppDate: bool
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.FromDate = FromDate
-        self.ToDate = ToDate
-        self.FilterByAppDate = FilterByAppDate
-
-
-class GetResidents_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentLeaseCharges_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        PostMonth: str,
-        TenantId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.PostMonth = PostMonth
-        self.TenantId = TenantId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentsLeaseCharges_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        PostMonth: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.PostMonth = PostMonth
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetOwnerTransactions_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetUnitInformation_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetResidentBalances:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
-class GetCondoUnitInformation_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        YardiPropertyId: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-
-
 class GetPropertyConfigurations:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -376,7 +19,8 @@ class GetPropertyConfigurations:
         self.InterfaceLicense = InterfaceLicense
 
 
-class ImportResidentTransactions_Login:
+class GetPropertyConfigurationsNewFromDate:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -386,7 +30,7 @@ class ImportResidentTransactions_Login:
         Platform: str,
         InterfaceEntity: str,
         InterfaceLicense: str,
-        TransactionXml: str
+        DateCreated: str
     ):
         self.UserName = UserName
         self.Password = Password
@@ -395,10 +39,11 @@ class ImportResidentTransactions_Login:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.TransactionXml = TransactionXml
+        self.DateCreated = DateCreated
 
 
-class ImportResidentTransactions_DepositDate:
+class GetPropertyList:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -408,127 +53,7 @@ class ImportResidentTransactions_DepositDate:
         Platform: str,
         InterfaceEntity: str,
         InterfaceLicense: str,
-        TransactionXml: str,
-        DepositDate: str,
-        DepositMemo: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.TransactionXml = TransactionXml
-        self.DepositDate = DepositDate
-        self.DepositMemo = DepositMemo
-
-
-class ImportReceipt_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        TransactionXml: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.TransactionXml = TransactionXml
-
-
-class ImportCharge_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        TransactionXml: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.TransactionXml = TransactionXml
-
-
-class ImportPayable_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        PayableDoc: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.PayableDoc = PayableDoc
-
-
-class ImportCheck_Login:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        CheckDoc: str
-    ):
-        self.UserName = UserName
-        self.Password = Password
-        self.ServerName = ServerName
-        self.Database = Database
-        self.Platform = Platform
-        self.InterfaceEntity = InterfaceEntity
-        self.InterfaceLicense = InterfaceLicense
-        self.CheckDoc = CheckDoc
-
-
-class GetPayables:
-    def __init__(
-        self,
-        UserName: str,
-        Password: str,
-        ServerName: str,
-        Database: str,
-        Platform: str,
-        InterfaceEntity: str,
-        InterfaceLicense: str,
-        YardiPropertyId: str,
-        VendorId: str,
-        InvoicePostMonthFrom: str,
-        InvoicePostMonthTo: str,
-        InvoiceFromDate: str,
-        InvoiceToDate: str,
-        UnpaidOnly: bool
+        YardiPropertyId: str
     ):
         self.UserName = UserName
         self.Password = Password
@@ -538,15 +63,10 @@ class GetPayables:
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
         self.YardiPropertyId = YardiPropertyId
-        self.VendorId = VendorId
-        self.InvoicePostMonthFrom = InvoicePostMonthFrom
-        self.InvoicePostMonthTo = InvoicePostMonthTo
-        self.InvoiceFromDate = InvoiceFromDate
-        self.InvoiceToDate = InvoiceToDate
-        self.UnpaidOnly = UnpaidOnly
 
 
-class GetVendor_Login:
+class GetPropertyOptions:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -554,23 +74,22 @@ class GetVendor_Login:
         ServerName: str,
         Database: str,
         Platform: str,
-        YardiPropertyId: str,
         InterfaceEntity: str,
         InterfaceLicense: str,
-        VendorId: str
+        YardiPropertyId: str
     ):
         self.UserName = UserName
         self.Password = Password
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
-        self.VendorId = VendorId
+        self.YardiPropertyId = YardiPropertyId
 
 
-class GetVendors_Login:
+class GetVendorOptions:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -578,7 +97,6 @@ class GetVendors_Login:
         ServerName: str,
         Database: str,
         Platform: str,
-        YardiPropertyId: str,
         InterfaceEntity: str,
         InterfaceLicense: str
     ):
@@ -587,12 +105,12 @@ class GetVendors_Login:
         self.ServerName = ServerName
         self.Database = Database
         self.Platform = Platform
-        self.YardiPropertyId = YardiPropertyId
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
 
 
-class ExportChartOfAccounts:
+class GetResidents:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -602,7 +120,8 @@ class ExportChartOfAccounts:
         Platform: str,
         InterfaceEntity: str,
         InterfaceLicense: str,
-        PropertyId: str
+        YardiPropertyId: str,
+        MoveOut1: str = None
     ):
         self.UserName = UserName
         self.Password = Password
@@ -611,10 +130,368 @@ class ExportChartOfAccounts:
         self.Platform = Platform
         self.InterfaceEntity = InterfaceEntity
         self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.MoveOut1 = MoveOut1
+
+
+class GetResidentData_ByChargeCode:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        TenantCode: str = None,
+        ChargeCode: str = None,
+        FromDate: str = None,
+        ToDate: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.TenantCode = TenantCode
+        self.ChargeCode = ChargeCode
+        self.FromDate = FromDate
+        self.ToDate = ToDate
+
+
+class GetResidentFromRoommate:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        IncludeLedger: bool,
+        LedgerAsOfDate: str,
+        IncludeLeaseCharges: bool,
+        IncludeVehicleInfo: bool,
+        IncludeRoommateData: bool,
+        IncludeEmployerData: bool,
+        RoommateCode: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.IncludeLedger = IncludeLedger
+        self.LedgerAsOfDate = LedgerAsOfDate
+        self.IncludeLeaseCharges = IncludeLeaseCharges
+        self.IncludeVehicleInfo = IncludeVehicleInfo
+        self.IncludeRoommateData = IncludeRoommateData
+        self.IncludeEmployerData = IncludeEmployerData
+        self.RoommateCode = RoommateCode
+
+
+class GetResidentsByDate:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        Status: str = None,
+        ModifiedSinceDate: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.Status = Status
+        self.ModifiedSinceDate = ModifiedSinceDate
+
+
+class GetResidentsByStatus:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        Status: str = None,
+        DateFrom: str = None,
+        DateTo: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.Status = Status
+        self.DateFrom = DateFrom
+        self.DateTo = DateTo
+
+
+class GetResidentData:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        IncludeLedger: bool,
+        LedgerAsOfDate: str,
+        IncludeLeaseCharges: bool,
+        IncludeVehicleInfo: bool,
+        IncludeRoommateData: bool,
+        IncludeEmployerData: bool,
+        TenantCode: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.IncludeLedger = IncludeLedger
+        self.LedgerAsOfDate = LedgerAsOfDate
+        self.IncludeLeaseCharges = IncludeLeaseCharges
+        self.IncludeVehicleInfo = IncludeVehicleInfo
+        self.IncludeRoommateData = IncludeRoommateData
+        self.IncludeEmployerData = IncludeEmployerData
+        self.TenantCode = TenantCode
+
+
+class GetOccupants:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        TenantCode: str = None,
+        UnitCode: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.TenantCode = TenantCode
+        self.UnitCode = UnitCode
+
+
+class UpdateResidentData:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        XmlDoc: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.XmlDoc = XmlDoc
+
+
+class ImportTenantLeaseDocumentPDF:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        DataBase: str = None,
+        PropertyId: str = None,
+        TenantCode: str = None,
+        AttachmentType: str = None,
+        Description: str = None,
+        Attachment: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.DataBase = DataBase
         self.PropertyId = PropertyId
+        self.TenantCode = TenantCode
+        self.AttachmentType = AttachmentType
+        self.Description = Description
+        self.Attachment = Attachment
 
 
-class GetChargeTypes_Login:
+class ImportTenantLeaseDocumentExt:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        DataBase: str = None,
+        PropertyId: str = None,
+        TenantCode: str = None,
+        AttachmentType: str = None,
+        Description: str = None,
+        Attachment: str = None,
+        FileExtension: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.DataBase = DataBase
+        self.PropertyId = PropertyId
+        self.TenantCode = TenantCode
+        self.AttachmentType = AttachmentType
+        self.Description = Description
+        self.Attachment = Attachment
+        self.FileExtension = FileExtension
+
+
+class GetTenantLeaseDocuments_DateRange:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        DateFrom: str,
+        DateTo: str,
+        TenantCode: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.DateFrom = DateFrom
+        self.DateTo = DateTo
+        self.TenantCode = TenantCode
+
+
+class GetTenantLeaseDocuments:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        TenantCode: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.TenantCode = TenantCode
+
+
+class GetTenantDocument:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        TenantCode: str = None,
+        FileName: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.TenantCode = TenantCode
+        self.FileName = FileName
+
+
+class GetAttachmentTypes:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -634,7 +511,8 @@ class GetChargeTypes_Login:
         self.InterfaceLicense = InterfaceLicense
 
 
-class GetVendorOptions_Login:
+class GetPermissions:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -654,7 +532,33 @@ class GetVendorOptions_Login:
         self.InterfaceLicense = InterfaceLicense
 
 
-class GetSegmentInformation:
+class GetResidentsByUnit:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        UnitId: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.UnitId = UnitId
+
+
+class GetUserPropertyAccess:
+    """Interface: Common Data."""
     def __init__(
         self,
         UserName: str,
@@ -674,27 +578,275 @@ class GetSegmentInformation:
         self.InterfaceLicense = InterfaceLicense
 
 
-class GetVersionNumber_Str:
+class GetRentroll:
+    """Interface: Common Data."""
     def __init__(
         self,
-
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        UnitId: str = None,
+        MoveIn: str = None,
+        MoveOut: str = None,
+        LeaseChgFrom: str = None,
+        LeaseChgTo: str = None
     ):
-        pass
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.UnitId = UnitId
+        self.MoveIn = MoveIn
+        self.MoveOut = MoveOut
+        self.LeaseChgFrom = LeaseChgFrom
+        self.LeaseChgTo = LeaseChgTo
+
+
+class GetTenantStatus:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+
+
+class GetUnitInformation:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+
+
+class GetCurrentUnitInformation:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+
+
+class GetContacts:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        YardiPropertyId: str,
+        TenantCode: str = None,
+        ContactRoleType: str = None,
+        ContactRoleDescription: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.YardiPropertyId = YardiPropertyId
+        self.TenantCode = TenantCode
+        self.ContactRoleType = ContactRoleType
+        self.ContactRoleDescription = ContactRoleDescription
+
+
+class GetContactRoles:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        ContactRoleType: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.ContactRoleType = ContactRoleType
+
+
+class GetUnitTransferData:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+
+
+class GetUnitTransferData_DateRange:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        FromDate: str,
+        ToDate: str
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.FromDate = FromDate
+        self.ToDate = ToDate
+
+
+class GetSchedulers:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        UpdatedDate: str = None
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.UpdatedDate = UpdatedDate
+
+
+class GetRoommatePromotions:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str,
+        Password: str,
+        ServerName: str,
+        Database: str,
+        Platform: str,
+        YardiPropertyId: str,
+        InterfaceEntity: str,
+        InterfaceLicense: str,
+        MoveOutFrom: str,
+        MoveOutTo: str
+    ):
+        self.UserName = UserName
+        self.Password = Password
+        self.ServerName = ServerName
+        self.Database = Database
+        self.Platform = Platform
+        self.YardiPropertyId = YardiPropertyId
+        self.InterfaceEntity = InterfaceEntity
+        self.InterfaceLicense = InterfaceLicense
+        self.MoveOutFrom = MoveOutFrom
+        self.MoveOutTo = MoveOutTo
 
 
 class GetVersionNumber:
-    def __init__(
-        self,
+    """Interface: Common Data."""
+    def __init__(self):
+        pass
 
-    ):
+
+class GetServerTime:
+    """Interface: Common Data."""
+    def __init__(self):
         pass
 
 
 class Ping:
-    def __init__(
-        self,
-
-    ):
+    """Interface: Common Data."""
+    def __init__(self):
         pass
 
 
