@@ -50,7 +50,7 @@ response.inspect("structure.txt")
 The SDK provides classes for all endpoints listed under the Billing & Payments, Vendor Invoicing, and Common Data Yardi interfaces. Each class has type-hinted instance variables matching the endpoint's parameters, allowing for rapid development using IntelliSense and tab completion. Yardi endpoints require credentials as part of the request, and then some endpoint-specific parameters which may be required or optional.
 
 <figure>
-    <img src="assets/hover.png" alt="IntelliSense demo" width="1000">
+    <img src="https://raw.githubusercontent.com/yhavin/yardi-sdk/main/assets/hover.png" alt="IntelliSense demo" width="1000">
     <figcaption style="text-align: center;"><small>IntelliSense for each endpoint's parameters.</small></figcaption>
 </figure>
 
@@ -78,7 +78,7 @@ Pretty-prints the XML response to the terminal or a file.
 Prints a high-level tree structure of the XML response to the terminal or a file, so that you can understand the elements and hierarchies. Elements that are returned in lists, such as Charges or Transactions, are truncated to just show one element with a `[List]` marker. A sample value from the actual response will be shown in the structure so that you know what type of values are returned (redacted below).
 
 <figure>
-    <img src="assets/inspect.png" alt="XML response structure" width="800">
+    <img src="https://raw.githubusercontent.com/yhavin/yardi-sdk/main/assets/inspect.png" alt="XML response structure" width="800">
     <figcaption style="text-align: center;"><small>Sample XML response structure.</small></figcaption>
 </figure>
 
