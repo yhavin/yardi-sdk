@@ -67,16 +67,16 @@ Interface entities and interface licenses are passed into each endpoint, so if y
 ### `Client`
 The `Client` class handles the SOAP connection to Yardi, using your WSDL URL, Yardi interface username, and Yardi interface password.
 
-####. `Client.call(self, endpoint, raw_output=False)`
+#### `Client.call(self, endpoint, raw_output=False)`
 Calls an endpoint using a given endpoint object and returns a `Response` object. By default, the response is cleaned from namespaces to make navigation easier, but this can be turned off using `raw_output=True`.
 
 ### `Response`
 The `Response` class has convenient methods for using the XML reponse from the endpoint. Of course, you can use the `xml` or `lxml` packages to deal with the response as you see fit.
 
-####. `Response.dump(self, path=None)`
+#### `Response.dump(self, path=None)`
 Pretty-prints the XML response to the terminal or a file.
 
-####. `Response.inspect(self, path=None)`
+#### `Response.inspect(self, path=None)`
 Prints a high-level tree structure of the XML response to the terminal or a file, so that you can understand the elements and hierarchies. Elements that are returned in lists, such as Charges or Transactions, are truncated to just show one element with a `[List]` marker. A sample value from the actual response will be shown in the structure so that you know what type of values are returned (redacted below).
 
 <figure>
@@ -88,7 +88,7 @@ Prints a high-level tree structure of the XML response to the terminal or a file
 You can import all endpoint classes from `yardi_sdk.endpoints` and view parameter names and types in order to use them. An endpoint instance is passed to `Client.call()`.
 
 ## Vendors
-If you are a [Yardi interface vendor](https://www.yardi.com/services/interfaces/standard-interface-options/), you are likely calling APIs across several Yardi accounts, since you have many Yardi customers. Thus, a single `.env` file with one Yardi username and password would not be sufficient. In your case, it is recommended to retrieve Yardi credentials of your customers (from wherever you keep them) and pass them into respective `Client` instances, one client for each customer. This is no worse than having to use a different `requests.HTTPBasicAuth` instance for each customer if you were to build the XML request documents manually (i.e., without an SDK).
+If you are a [Yardi interface vendor](https://www.yardi.com/services/interfaces/standard-interface-options/), you are likely calling APIs across several Yardi accounts, since you have many Yardi customers. Thus, a single `.env` file with one Yardi username and password would not be sufficient. In your case, it is recommended to retrieve Yardi credentials of your customers (from wherever you keep them) and pass them into respective `Client` instances, one client for each customer. This is no worse than having to use a different `requests.HTTPBasicAuth` instance for each customer if you were to build the XML request documents manually (i.e., without an SDK)
 
 ## Further documentation
 Consult with your Yardi representative to get further documentation on the interface endpoints, as the WSDLs do not give endpoint descriptions and detailed explanations for each parameter.
