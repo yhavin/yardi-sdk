@@ -9,22 +9,26 @@ import logging
 import lxml.etree as ET
 from xml.dom import minidom
 import re
+import os
 
 from zeep import Client as ZeepClient
 from zeep.transports import Transport
 from requests import Session
 from requests.auth import HTTPBasicAuth
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 
 class Client:
-    def __init__(self, wsdl: str, username: str, password: str, log_level=logging.ERROR):
+    def __init__(self, wsdl: str = os.getenv("WSDL_URL"), username: str = os.getenv("USERNAME"), password: str = os.getenv("PASSWORD"), log_level=logging.ERROR):
         logging.getLogger("zeep").setLevel(log_level)
 
-        self.wsdl = wsdl
         session = Session()
         session.auth = HTTPBasicAuth(username, password)
         transport = Transport(session=session)
-        self.client = ZeepClient(wsdl=self.wsdl, transport=transport)
+        self.client = ZeepClient(wsdl=wsdl, transport=transport)
 
     def call(self, endpoint, raw_output=False):
         """Call a Yardi endpoint."""
