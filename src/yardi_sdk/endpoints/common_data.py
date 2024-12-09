@@ -26,7 +26,7 @@ class GetPropertyConfigurationsNewFromDate:
     """Interface: Common Data."""
     def __init__(
         self,
-        DateCreated: str = None,
+        DateCreated: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -49,7 +49,7 @@ class GetPropertyList:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -72,7 +72,7 @@ class GetPropertyOptions:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -116,7 +116,7 @@ class GetResidents:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -141,7 +141,7 @@ class GetResidentData_ByChargeCode:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -172,13 +172,13 @@ class GetResidentFromRoommate:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        IncludeLedger: bool = None,
-        LedgerAsOfDate: str = None,
-        IncludeLeaseCharges: bool = None,
-        IncludeVehicleInfo: bool = None,
-        IncludeRoommateData: bool = None,
-        IncludeEmployerData: bool = None,
+        YardiPropertyId: str,
+        IncludeLedger: bool,
+        LedgerAsOfDate: str,
+        IncludeLeaseCharges: bool,
+        IncludeVehicleInfo: bool,
+        IncludeRoommateData: bool,
+        IncludeEmployerData: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -209,7 +209,7 @@ class GetResidentsByDate:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -236,7 +236,7 @@ class GetResidentsByStatus:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -265,13 +265,13 @@ class GetResidentData:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        IncludeLedger: bool = None,
-        LedgerAsOfDate: str = None,
-        IncludeLeaseCharges: bool = None,
-        IncludeVehicleInfo: bool = None,
-        IncludeRoommateData: bool = None,
-        IncludeEmployerData: bool = None,
+        YardiPropertyId: str,
+        IncludeLedger: bool,
+        LedgerAsOfDate: str,
+        IncludeLeaseCharges: bool,
+        IncludeVehicleInfo: bool,
+        IncludeRoommateData: bool,
+        IncludeEmployerData: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -302,7 +302,7 @@ class GetOccupants:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -416,9 +416,9 @@ class GetTenantLeaseDocuments_DateRange:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        DateFrom: str = None,
-        DateTo: str = None,
+        YardiPropertyId: str,
+        DateFrom: str,
+        DateTo: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -445,7 +445,7 @@ class GetTenantLeaseDocuments:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -470,7 +470,7 @@ class GetTenantDocument:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -539,7 +539,7 @@ class GetResidentsByUnit:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -585,7 +585,7 @@ class GetRentroll:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -618,7 +618,7 @@ class GetTenantStatus:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -641,7 +641,7 @@ class GetUnitInformation:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -664,7 +664,7 @@ class GetCurrentUnitInformation:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -687,7 +687,7 @@ class GetContacts:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -739,7 +739,7 @@ class GetUnitTransferData:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -762,9 +762,9 @@ class GetUnitTransferData_DateRange:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        FromDate: str = None,
-        ToDate: str = None,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -812,9 +812,9 @@ class GetRoommatePromotions:
     """Interface: Common Data."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        MoveOutFrom: str = None,
-        MoveOutTo: str = None,
+        YardiPropertyId: str,
+        MoveOutFrom: str,
+        MoveOutTo: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,

@@ -5,15 +5,15 @@ class GetInvoiceRegister:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        InvoicePostMonthFrom: str = None,
-        InvoicePostMonthTo: str = None,
-        InvoiceFromDate: str = None,
-        InvoiceToDate: str = None,
-        InvoiceCreationFromDate: str = None,
-        InvoiceCreationToDate: str = None,
-        InvoiceLastModifiedFromDate: str = None,
-        InvoiceLastModifiedToDate: str = None,
+        YardiPropertyId: str,
+        InvoicePostMonthFrom: str,
+        InvoicePostMonthTo: str,
+        InvoiceFromDate: str,
+        InvoiceToDate: str,
+        InvoiceCreationFromDate: str,
+        InvoiceCreationToDate: str,
+        InvoiceLastModifiedFromDate: str,
+        InvoiceLastModifiedToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -58,7 +58,7 @@ class CancelInvoiceRegisterBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        BatchId: str = None,
+        BatchId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -104,7 +104,7 @@ class GetVendor_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -129,7 +129,7 @@ class GetVendors_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -152,7 +152,7 @@ class GetVendorsSync:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -175,7 +175,7 @@ class GetBudgets:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -202,7 +202,7 @@ class GetBudgets_Month:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -231,17 +231,17 @@ class GetPayables:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        InvoicePostMonthFrom: str = None,
-        InvoicePostMonthTo: str = None,
-        InvoiceFromDate: str = None,
-        InvoiceToDate: str = None,
-        UnpaidOnly: bool = None,
-        CheckFromDate: str = None,
-        CheckToDate: str = None,
-        InvoiceCreationFromDate: str = None,
-        InvoiceCreationToDate: str = None,
-        No3rdPartyInv: bool = None,
+        YardiPropertyId: str,
+        InvoicePostMonthFrom: str,
+        InvoicePostMonthTo: str,
+        InvoiceFromDate: str,
+        InvoiceToDate: str,
+        UnpaidOnly: bool,
+        CheckFromDate: str,
+        CheckToDate: str,
+        InvoiceCreationFromDate: str,
+        InvoiceCreationToDate: str,
+        No3rdPartyInv: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -276,24 +276,24 @@ class GetPayables2:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        InvoicePostMonthFrom: str = None,
-        InvoicePostMonthTo: str = None,
-        InvoiceFromDate: str = None,
-        InvoiceToDate: str = None,
-        UnpaidOnly: bool = None,
-        InvoiceCreationFromDate: str = None,
-        InvoiceCreationToDate: str = None,
-        No3rdPartyInv: bool = None,
-        CheckPostMonthFrom: str = None,
-        CheckPostMonthTo: str = None,
-        CheckClearedFromDate: str = None,
-        CheckClearedToDate: str = None,
-        CheckCreationFromDate: str = None,
-        CheckCreationToDate: str = None,
-        CheckFromDate: str = None,
-        CheckToDate: str = None,
-        UnpostedInvoicesOnly: bool = None,
+        YardiPropertyId: str,
+        InvoicePostMonthFrom: str,
+        InvoicePostMonthTo: str,
+        InvoiceFromDate: str,
+        InvoiceToDate: str,
+        UnpaidOnly: bool,
+        InvoiceCreationFromDate: str,
+        InvoiceCreationToDate: str,
+        No3rdPartyInv: bool,
+        CheckPostMonthFrom: str,
+        CheckPostMonthTo: str,
+        CheckClearedFromDate: str,
+        CheckClearedToDate: str,
+        CheckCreationFromDate: str,
+        CheckCreationToDate: str,
+        CheckFromDate: str,
+        CheckToDate: str,
+        UnpostedInvoicesOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -341,7 +341,7 @@ class GetPayableByBatchId:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        BatchId: str = None,
+        BatchId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -364,9 +364,9 @@ class GetPayableByLastModifiedDate:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        FromDate: str = None,
-        ToDate: str = None,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -412,10 +412,10 @@ class GetPurchaseOrders:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        POCreationFromDate: str = None,
-        POCreationToDate: str = None,
-        OpenOnly: bool = None,
+        YardiPropertyId: str,
+        POCreationFromDate: str,
+        POCreationToDate: str,
+        OpenOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -447,9 +447,9 @@ class GetPOFromModifiedDate:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        POModifiedFromDate: str = None,
-        POModifiedToDate: str = None,
+        YardiPropertyId: str,
+        POModifiedFromDate: str,
+        POModifiedToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -474,11 +474,11 @@ class GetPOChangeOrders:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        COCreationFromDate: str = None,
-        COCreationToDate: str = None,
-        OpenOnly: bool = None,
-        IncludeParentPO: bool = None,
+        YardiPropertyId: str,
+        COCreationFromDate: str,
+        COCreationToDate: str,
+        OpenOnly: bool,
+        IncludeParentPO: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -517,10 +517,10 @@ class GetPOChangeOrdersFromModifiedDate:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        COModifiedFromDate: str = None,
-        COModifiedToDate: str = None,
-        IncludeParentPO: bool = None,
+        YardiPropertyId: str,
+        COModifiedFromDate: str,
+        COModifiedToDate: str,
+        IncludeParentPO: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -550,7 +550,7 @@ class ImportVendors_Login:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -734,14 +734,14 @@ class GetJournalEntries:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        BatchId: str = None,
-        JournalEntryPostMonthFrom: str = None,
-        JournalEntryPostMonthTo: str = None,
-        JournalEntryFromDate: str = None,
-        JournalEntryToDate: str = None,
-        JournalCreationFromDate: str = None,
-        JournalCreationToDate: str = None,
+        YardiPropertyId: str,
+        BatchId: str,
+        JournalEntryPostMonthFrom: str,
+        JournalEntryPostMonthTo: str,
+        JournalEntryFromDate: str,
+        JournalEntryToDate: str,
+        JournalCreationFromDate: str,
+        JournalCreationToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -773,14 +773,14 @@ class GetJournalEntries2:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        BatchId: str = None,
-        JournalEntryPostMonthFrom: str = None,
-        JournalEntryPostMonthTo: str = None,
-        JournalEntryFromDate: str = None,
-        JournalEntryToDate: str = None,
-        JournalCreationFromDate: str = None,
-        JournalCreationToDate: str = None,
+        YardiPropertyId: str,
+        BatchId: str,
+        JournalEntryPostMonthFrom: str,
+        JournalEntryPostMonthTo: str,
+        JournalEntryFromDate: str,
+        JournalEntryToDate: str,
+        JournalCreationFromDate: str,
+        JournalCreationToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -833,7 +833,7 @@ class OpenPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -858,7 +858,7 @@ class AddPayablesToBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        BatchId: str = None,
+        BatchId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -883,7 +883,7 @@ class ReviewPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        BatchId: str = None,
+        BatchId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -906,7 +906,7 @@ class PostPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        BatchId: str = None,
+        BatchId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -950,7 +950,7 @@ class CancelPayableBatch:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        BatchId: str = None,
+        BatchId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -973,7 +973,7 @@ class GetJobCost:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        IncludeChangeOrderOnly: bool = None,
+        IncludeChangeOrderOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1000,7 +1000,7 @@ class GetJobCostByProperty:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        IncludeChangeOrderOnly: bool = None,
+        IncludeChangeOrderOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1056,7 +1056,7 @@ class ReversePayable:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        PostMonth: str = None,
+        PostMonth: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1104,8 +1104,8 @@ class GetInvoiceRegisterImage:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        PageNo: str = None,
+        YardiPropertyId: str,
+        PageNo: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1133,8 +1133,8 @@ class GetInvoiceImage:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        PageNo: str = None,
+        YardiPropertyId: str,
+        PageNo: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1162,8 +1162,8 @@ class ImportInvoiceRegisterImage:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        InvoiceDate: str = None,
+        YardiPropertyId: str,
+        InvoiceDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1216,16 +1216,16 @@ class GetCheckInvoice:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        CheckPostMonthFrom: str = None,
-        CheckPostMonthTo: str = None,
-        CheckClearedFromDate: str = None,
-        CheckClearedToDate: str = None,
-        CheckCreationFromDate: str = None,
-        CheckCreationToDate: str = None,
-        CheckFromDate: str = None,
-        CheckToDate: str = None,
-        JoinCheckFiltersWithOr: bool = None,
-        UnprintedChecksOnly: bool = None,
+        CheckPostMonthFrom: str,
+        CheckPostMonthTo: str,
+        CheckClearedFromDate: str,
+        CheckClearedToDate: str,
+        CheckCreationFromDate: str,
+        CheckCreationToDate: str,
+        CheckFromDate: str,
+        CheckToDate: str,
+        JoinCheckFiltersWithOr: bool,
+        UnprintedChecksOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -1261,16 +1261,16 @@ class GetCheckBatchInvoices:
     """Interface: Vendor Invoicing."""
     def __init__(
         self,
-        CheckPostMonthFrom: str = None,
-        CheckPostMonthTo: str = None,
-        CheckClearedFromDate: str = None,
-        CheckClearedToDate: str = None,
-        CheckCreationFromDate: str = None,
-        CheckCreationToDate: str = None,
-        CheckFromDate: str = None,
-        CheckToDate: str = None,
-        JoinCheckFiltersWithOr: bool = None,
-        UnprintedChecksOnly: bool = None,
+        CheckPostMonthFrom: str,
+        CheckPostMonthTo: str,
+        CheckClearedFromDate: str,
+        CheckClearedToDate: str,
+        CheckCreationFromDate: str,
+        CheckCreationToDate: str,
+        CheckFromDate: str,
+        CheckToDate: str,
+        JoinCheckFiltersWithOr: bool,
+        UnprintedChecksOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,

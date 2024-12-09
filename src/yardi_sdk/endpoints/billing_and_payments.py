@@ -5,7 +5,7 @@ class GetResidentTransaction_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -30,7 +30,7 @@ class GetResidentTransactions_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -53,9 +53,9 @@ class GetResidentTransactions_ByChargeDate_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        FromDate: str = None,
-        ToDate: str = None,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -80,9 +80,9 @@ class GetResidentTransactions_ByApplicationDate_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        FromDate: str = None,
-        ToDate: str = None,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -107,7 +107,7 @@ class GetResidentCharges_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -130,10 +130,10 @@ class GetResidentCharges_ByDate_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        FromDate: str = None,
-        ToDate: str = None,
-        FilterByAppDate: bool = None,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
+        FilterByAppDate: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -159,7 +159,7 @@ class GetResidentPrepays_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -182,10 +182,10 @@ class GetResidentPrepays_ByDate_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        FromDate: str = None,
-        ToDate: str = None,
-        FilterByAppDate: bool = None,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
+        FilterByAppDate: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -211,7 +211,7 @@ class GetResidents_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -234,8 +234,8 @@ class GetResidentLeaseCharges_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        PostMonth: str = None,
+        YardiPropertyId: str,
+        PostMonth: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -261,8 +261,8 @@ class GetResidentsLeaseCharges_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        PostMonth: str = None,
+        YardiPropertyId: str,
+        PostMonth: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -286,7 +286,7 @@ class GetOwnerTransactions_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -309,7 +309,7 @@ class GetUnitInformation_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -332,7 +332,7 @@ class GetResidentBalances:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -355,7 +355,7 @@ class GetCondoUnitInformation_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -422,7 +422,7 @@ class ImportResidentTransactions_DepositDate:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        DepositDate: str = None,
+        DepositDate: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -541,12 +541,12 @@ class GetPayables:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
-        InvoicePostMonthFrom: str = None,
-        InvoicePostMonthTo: str = None,
-        InvoiceFromDate: str = None,
-        InvoiceToDate: str = None,
-        UnpaidOnly: bool = None,
+        YardiPropertyId: str,
+        InvoicePostMonthFrom: str,
+        InvoicePostMonthTo: str,
+        InvoiceFromDate: str,
+        InvoiceToDate: str,
+        UnpaidOnly: bool,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -576,7 +576,7 @@ class GetVendor_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,
@@ -601,7 +601,7 @@ class GetVendors_Login:
     """Interface: Billing and Payments."""
     def __init__(
         self,
-        YardiPropertyId: str = None,
+        YardiPropertyId: str,
         UserName: str = None,
         Password: str = None,
         ServerName: str = None,

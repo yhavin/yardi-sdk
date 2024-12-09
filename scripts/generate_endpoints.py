@@ -61,17 +61,11 @@ class EndpointGenerator:
                                 f.write("    def __init__(\n")
                                 f.write("        self,\n")
 
-                                for parameter, parameter_type in required_parameters_without_defaults + required_parameters_with_defaults + optional_parameters:
+                                for parameter, parameter_type in required_parameters_without_defaults:
+                                    f.write(f"        {parameter}: {parameter_type},\n")
+
+                                for parameter, parameter_type in required_parameters_with_defaults + optional_parameters:
                                     f.write(f"        {parameter}: {parameter_type} = None,\n")
-
-                                # for parameter, parameter_type in required_parameters_with_defaults:
-                                #     # env_variable = self.env_mapping.get(parameter)
-                                #     # default = f'os.getenv("{env_variable}")'
-                                #     # f.write(f"        {parameter}: {parameter_type} = {default},\n")
-                                #     f.write(f"        {parameter}: {parameter_type},\n")
-
-                                # for parameter, parameter_type in optional_parameters:
-                                #     f.write(f"        {parameter}: {parameter_type} = None,\n")
 
                                 f.seek(f.tell() - 2)
                                 f.write("\n    ):\n")
