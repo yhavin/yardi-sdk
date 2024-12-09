@@ -7,7 +7,7 @@
 ## About
 This package provides an unofficial SDK for using Yardi APIs, making it extremely simple to call Yardi API endpoints. Yardi uses SOAP APIs requiring XML envelopes and documents, which may be unfamiliar for many developers. This package exposes a `Client` object as well as endpoint classes to allow for easy calling of Yardi APIs, complete with IntelliSense and tab completion.
 
-Yardi vendors and third-party integrators, please read the [Vendors](#vendors) section below
+Yardi vendors and third-party integrators, please read the [Vendors](#vendors) section below.
 
 ## Installation
 ```shell
@@ -52,7 +52,7 @@ response.inspect("structure.txt")
 The SDK provides classes for all endpoints listed under the Billing & Payments, Vendor Invoicing, and Common Data Yardi interfaces. Each class has type-hinted instance variables matching the endpoint's parameters, allowing for rapid development using IntelliSense and tab completion. Yardi endpoints require credentials as part of the request, and then some endpoint-specific parameters which may be required or optional.
 
 <figure>
-    <img src="https://raw.githubusercontent.com/yhavin/yardi-sdk/main/assets/hover.png" alt="IntelliSense demo" width="1000">
+    <img src="https://raw.githubusercontent.com/yhavin/yardi-sdk/main/assets/hover2.png" alt="IntelliSense demo" width="1000">
     <figcaption style="text-align: center;"><small>IntelliSense for each endpoint's parameters.</small></figcaption>
 </figure>
 
