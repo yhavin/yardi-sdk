@@ -155,6 +155,35 @@ class GetResidentCharges_ByDate_Login:
         self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
 
 
+class GetClosedCharges:
+    """Interface: Billing and Payments."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        FromDate: str,
+        ToDate: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        TenantId: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.FromDate = FromDate
+        self.ToDate = ToDate
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.TenantId = TenantId
+
+
 class GetResidentPrepays_Login:
     """Interface: Billing and Payments."""
     def __init__(
@@ -342,6 +371,31 @@ class GetResidentBalances:
         InterfaceLicense: str = None
     ):
         self.YardiPropertyId = YardiPropertyId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class GetResidentBalances_ByDate:
+    """Interface: Billing and Payments."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        LedgerAsOfDate: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.LedgerAsOfDate = LedgerAsOfDate
         self.UserName = UserName or os.getenv("USERNAME")
         self.Password = Password or os.getenv("PASSWORD")
         self.ServerName = ServerName or os.getenv("SERVER_NAME")
