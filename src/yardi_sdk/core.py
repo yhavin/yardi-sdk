@@ -68,17 +68,25 @@ class Response:
             if "}" in element.tag:
                 element.tag = element.tag.split("}", 1)[1]
         return self.response
-    
+
     def dump(self, path=None):
-        """Pretty-print XML response to terminal or file."""
+        """
+        Return pretty XML response or output to terminal or file.
+
+        - If path is None, return pretty_xml
+        - If path is "print", print to terminal
+        - If path is a file path, output to file
+        """
         xml_string = ET.tostring(self.response, encoding="utf-8", method="xml").decode("utf-8")
         pretty_xml = minidom.parseString(xml_string).toprettyxml()
 
-        if path:
+        if path is None:
+            return pretty_xml
+        elif path == "print":
+            print(pretty_xml)
+        else:
             with open(path, "w") as f:
                 f.write(pretty_xml)
-        else:
-            print(pretty_xml)
 
     def inspect(self, path=None):
         """Print XML object structure to terminal or file."""
