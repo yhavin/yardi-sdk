@@ -25,6 +25,7 @@ class Client:
     def __init__(self, wsdl: str = os.getenv("WSDL_URL"), username: str = os.getenv("USERNAME"), password: str = os.getenv("PASSWORD"), log_level=logging.ERROR):
         logging.getLogger("zeep").setLevel(log_level)
 
+        self.wsdl = wsdl
         session = Session()
         session.auth = HTTPBasicAuth(username, password)
         transport = Transport(session=session)
