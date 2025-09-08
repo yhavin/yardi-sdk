@@ -1,6 +1,6 @@
 [project]
 name = "yardi-sdk"
-version = "0.1.9"
+version = "0.1.10"
 description = "Yardi SDK for Python"
 readme = "README.md"
 authors = [
@@ -27,4 +27,4 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
-exclude = ["scripts", "dev.py", "*.xml", "*.txt"]
+exclude = ["scripts", "dev.py", "*.xml", "*.txt", "leases.py", "*.pdf"]

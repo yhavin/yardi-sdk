@@ -43,7 +43,10 @@ class Client:
 
         try:
             response = getattr(self.client.service, endpoint_name)(**parameters)
-            return Response(response, raw_output=raw_output)
+            if isinstance(response, ET._Element):
+                return Response(response, raw_output=raw_output)
+            else:
+                return response
         except Exception as e:
             raise Exception(f"Error calling {endpoint_name}: {e}")
         
