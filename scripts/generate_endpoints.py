@@ -96,6 +96,8 @@ if __name__ == "__main__":
     bp_wsdl = os.getenv("BP_WSDL_URL")
     vi_wsdl = os.getenv("VI_WSDL_URL")
     cd_wsdl = os.getenv("CD_WSDL_URL")
+    sr_wsdl = os.getenv("SR_WSDL_URL")
     generator = EndpointGenerator(bp_wsdl, "Billing and Payments").generate(output_file="src/yardi_sdk/endpoints/billing_and_payments.py")
     generator = EndpointGenerator(vi_wsdl, "Vendor Invoicing").generate(output_file="src/yardi_sdk/endpoints/vendor_invoicing.py")
     generator = EndpointGenerator(cd_wsdl, "Common Data").generate(output_file="src/yardi_sdk/endpoints/common_data.py")
+    generator = EndpointGenerator(sr_wsdl, "Service Requests").generate(output_file="src/yardi_sdk/endpoints/service_requests.py")

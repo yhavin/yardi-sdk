@@ -49,7 +49,7 @@ response.inspect("structure.txt")
 ```
 
 ## Endpoints
-The SDK provides classes for all endpoints listed under the Billing & Payments, Vendor Invoicing, and Common Data Yardi interfaces. Each class has type-hinted instance variables matching the endpoint's parameters, allowing for rapid development using IntelliSense and tab completion. Yardi endpoints require credentials as part of the request, and then some endpoint-specific parameters which may be required or optional.
+The SDK provides classes for all endpoints listed under the Billing & Payments, Vendor Invoicing, Service Requests, and Common Data Yardi interfaces. Each class has type-hinted instance variables matching the endpoint's parameters, allowing for rapid development using IntelliSense and tab completion. Yardi endpoints require credentials as part of the request, and then some endpoint-specific parameters which may be required or optional.
 
 <figure>
     <img src="https://raw.githubusercontent.com/yhavin/yardi-sdk/main/assets/hover2.png" alt="IntelliSense demo" width="1000">
