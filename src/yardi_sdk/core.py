@@ -21,13 +21,65 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def pretty(raw: bytes | str | None) -> str | None:
+    if raw is None:
+        return None
+    if isinstance(raw, bytes):
+        raw = raw.decode("utf-8")
+    try:
+        return minidom.parseString(raw).toprettyxml()
+    except Exception:
+        return raw
+    
+
+def make_debug_hook(debug_to: str | list[str]):
+    def hook(response, *args, **kwargs) -> None:
+        pretty_request = pretty(response.request.body)
+        pretty_response = pretty(response.content)
+
+        if pretty_request is None:
+            return
+
+        if debug_to == "print":
+            print("--- REQUEST ---")
+            print(pretty_request)
+            print("\n")
+            print("--- RESPONSE ---")
+            print(pretty_response)
+        else:
+            with open(debug_to[0], "w") as f:
+                f.write(pretty_request)
+            with open(debug_to[1], "w") as f:
+                f.write(pretty_response)
+    return hook
+
+
 class Client:
-    def __init__(self, wsdl: str = os.getenv("WSDL_URL"), username: str = os.getenv("USERNAME"), password: str = os.getenv("PASSWORD"), log_level=logging.ERROR):
+    def __init__(
+            self,
+            wsdl: str = os.getenv("WSDL_URL"),
+            username: str = os.getenv("USERNAME"),
+            password: str = os.getenv("PASSWORD"),
+            log_level=logging.ERROR,
+            debug_to: str | list[str] | None = None
+        ):
         logging.getLogger("zeep").setLevel(log_level)
+
+        if debug_to is not None:
+            if isinstance(debug_to, list):
+                if len(debug_to) != 2 or not all(isinstance(path, str) for path in debug_to):
+                    raise ValueError("`debug_to` must be a list of exactly two strings: request path and response path")
+                if debug_to[0] == debug_to[1]:
+                    name, _, extension = debug_to[1].rpartition(".")
+                    debug_to[1] = f"{name}1.{extension}" if extension else f"{debug_to[1]}1"
+            elif debug_to != "print":
+                raise ValueError("`debug_to` must be 'print' or a list of two file path strings")
 
         self.wsdl = wsdl
         session = Session()
         session.auth = HTTPBasicAuth(username, password)
+        if debug_to is not None:
+            session.hooks["response"].append(make_debug_hook(debug_to))
         transport = Transport(session=session)
         self.client = ZeepClient(wsdl=wsdl, transport=transport)
 
