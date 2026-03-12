@@ -67,6 +67,8 @@ Interface entities and interface licenses are passed into each endpoint, so if y
 ### `Client`
 The `Client` class handles the SOAP connection to Yardi, using your WSDL URL, Yardi interface username, and Yardi interface password.
 
+You can instruct the `Client` to output raw requests and responses for debugging purposes using the `debug_to` argument, either by pretty-printing to the terminal or outputting them as files.
+
 #### `Client.call(self, endpoint, raw_output=False)`
 Calls an endpoint using a given endpoint object and returns a `Response` object. By default, the response is cleaned from namespaces to make navigation easier, but this can be turned off using `raw_output=True`.
 
