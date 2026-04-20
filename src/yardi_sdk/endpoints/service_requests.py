@@ -462,6 +462,87 @@ class GetAttachments_DateRange:
         self.ToDate = ToDate
 
 
+class GetAttachment:
+    """Interface: Service Requests."""
+    def __init__(
+        self,
+        ServiceRequestId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        PropertyID: str = None,
+        AttachmentName: str = None
+    ):
+        self.ServiceRequestId = ServiceRequestId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.PropertyID = PropertyID
+        self.AttachmentName = AttachmentName
+
+
+class GetAttachmentNames:
+    """Interface: Service Requests."""
+    def __init__(
+        self,
+        ServiceRequestId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        PropertyID: str = None,
+        AttachmentName: str = None
+    ):
+        self.ServiceRequestId = ServiceRequestId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.PropertyID = PropertyID
+        self.AttachmentName = AttachmentName
+
+
+class DeleteServiceRequestAttachment:
+    """Interface: Service Requests."""
+    def __init__(
+        self,
+        WorkOrderId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        DataBase: str = None,
+        PropertyCode: str = None,
+        AttachmentName: str = None
+    ):
+        self.WorkOrderId = WorkOrderId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.DataBase = DataBase
+        self.PropertyCode = PropertyCode
+        self.AttachmentName = AttachmentName
+
+
 class GetVendorConfiguration:
     """Interface: Service Requests."""
     def __init__(
@@ -481,6 +562,31 @@ class GetVendorConfiguration:
         self.Platform = Platform or os.getenv("PLATFORM")
         self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
         self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class MakeUnitRentReady:
+    """Interface: Service Requests."""
+    def __init__(
+        self,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        PropertyId: str = None,
+        UnitId: str = None
+    ):
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.PropertyId = PropertyId
+        self.UnitId = UnitId
 
 
 class GetVersionNumber:

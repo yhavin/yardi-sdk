@@ -1,6 +1,54 @@
 import os
 
 
+class GetLeaseChargeInformation:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        FromDate: str,
+        IncludeRentableItems: bool,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.FromDate = FromDate
+        self.IncludeRentableItems = IncludeRentableItems
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class GetRateLimits:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None
+    ):
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
 class GetPropertyConfigurations:
     """Interface: Common Data."""
     def __init__(
@@ -36,6 +84,29 @@ class GetPropertyConfigurationsNewFromDate:
         InterfaceLicense: str = None
     ):
         self.DateCreated = DateCreated
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class GetPropertyConfigurationsModifiedFromDate:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        DateModified: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None
+    ):
+        self.DateModified = DateModified
         self.UserName = UserName or os.getenv("USERNAME")
         self.Password = Password or os.getenv("PASSWORD")
         self.ServerName = ServerName or os.getenv("SERVER_NAME")
@@ -412,6 +483,95 @@ class ImportTenantLeaseDocumentExt:
         self.FileExtension = FileExtension
 
 
+class ImportUnitAttachment:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        DataBase: str = None,
+        PropertyId: str = None,
+        UnitCode: str = None,
+        AttachmentType: str = None,
+        Description: str = None,
+        Attachment: str = None,
+        FileExtension: str = None
+    ):
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.DataBase = DataBase
+        self.PropertyId = PropertyId
+        self.UnitCode = UnitCode
+        self.AttachmentType = AttachmentType
+        self.Description = Description
+        self.Attachment = Attachment
+        self.FileExtension = FileExtension
+
+
+class GetUnitAttachment:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        UnitCode: str = None,
+        FileName: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.UnitCode = UnitCode
+        self.FileName = FileName
+
+
+class GetUnitAttachmentNames:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        DateFrom: str,
+        DateTo: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        UnitCode: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.DateFrom = DateFrom
+        self.DateTo = DateTo
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.UnitCode = UnitCode
+
+
 class GetTenantLeaseDocuments_DateRange:
     """Interface: Common Data."""
     def __init__(
@@ -614,6 +774,31 @@ class GetRentroll:
         self.LeaseChgTo = LeaseChgTo
 
 
+class GetUnitRoomBed:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        UnitId: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.UnitId = UnitId
+
+
 class GetTenantStatus:
     """Interface: Common Data."""
     def __init__(
@@ -681,6 +866,83 @@ class GetCurrentUnitInformation:
         self.Platform = Platform or os.getenv("PLATFORM")
         self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
         self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class GetUnitInformationByStatus:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        Status: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.Status = Status
+
+
+class GetUnitInformationByDate:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        ModifiedSinceDate: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        Status: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.ModifiedSinceDate = ModifiedSinceDate
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.Status = Status
+
+
+class ImportContacts:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None,
+        TenantCode: str = None,
+        ImportXML: str = None
+    ):
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+        self.TenantCode = TenantCode
+        self.ImportXML = ImportXML
 
 
 class GetContacts:
@@ -826,6 +1088,58 @@ class GetRoommatePromotions:
         self.YardiPropertyId = YardiPropertyId
         self.MoveOutFrom = MoveOutFrom
         self.MoveOutTo = MoveOutTo
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class Export_PropertyAttributeData:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.UserName = UserName or os.getenv("USERNAME")
+        self.Password = Password or os.getenv("PASSWORD")
+        self.ServerName = ServerName or os.getenv("SERVER_NAME")
+        self.Database = Database or os.getenv("DATABASE")
+        self.Platform = Platform or os.getenv("PLATFORM")
+        self.InterfaceEntity = InterfaceEntity or os.getenv("INTERFACE_ENTITY")
+        self.InterfaceLicense = InterfaceLicense or os.getenv("INTERFACE_LICENSE")
+
+
+class GetLeaseInformation:
+    """Interface: Common Data."""
+    def __init__(
+        self,
+        YardiPropertyId: str,
+        IncludeLeaseCharges: bool,
+        IncludeVehicleInfo: bool,
+        IncludePetInfo: bool,
+        UserName: str = None,
+        Password: str = None,
+        ServerName: str = None,
+        Database: str = None,
+        Platform: str = None,
+        InterfaceEntity: str = None,
+        InterfaceLicense: str = None
+    ):
+        self.YardiPropertyId = YardiPropertyId
+        self.IncludeLeaseCharges = IncludeLeaseCharges
+        self.IncludeVehicleInfo = IncludeVehicleInfo
+        self.IncludePetInfo = IncludePetInfo
         self.UserName = UserName or os.getenv("USERNAME")
         self.Password = Password or os.getenv("PASSWORD")
         self.ServerName = ServerName or os.getenv("SERVER_NAME")
