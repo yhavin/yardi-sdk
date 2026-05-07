@@ -49,7 +49,7 @@ response.inspect("structure.txt")
 ```
 
 ## Endpoints
-The SDK provides classes for all endpoints listed under the Billing & Payments, Vendor Invoicing, Service Requests, and Common Data Yardi interfaces. Each class has type-hinted instance variables matching the endpoint's parameters, allowing for rapid development using IntelliSense and tab completion. Yardi endpoints require credentials as part of the request, and then some endpoint-specific parameters which may be required or optional.
+The SDK provides classes for all endpoints listed under the Billing & Payments, Vendor Invoicing, Service Requests, ILS/Guest Card, Revenue Management, Lease Renewal, and Common Data Yardi interfaces. Each class has type-hinted instance variables matching the endpoint's parameters, allowing for rapid development using IntelliSense and tab completion. Yardi endpoints require credentials as part of the request, and then some endpoint-specific parameters which may be required or optional.
 
 <figure>
     <img src="https://raw.githubusercontent.com/yhavin/yardi-sdk/main/assets/hover2.png" alt="IntelliSense demo" width="1000">
@@ -57,7 +57,7 @@ The SDK provides classes for all endpoints listed under the Billing & Payments, 
 </figure>
 
 ### WSDL and interfaces
-Yardi's API systems are defined using WSDL (Web Services Description Language), which functions as the "documentation" for the endpoints. Each interface (such as Billing and Payments or Common Data) has its own WSDL URL, and when accessed you will find an XML document with all the endpoints available. The endpoints in the SDK are auto-generated from these WSDLs, and the `Client` object connects to a WSDL in order to actually call the endpoint. Under the hood, the [`zeep`](https://github.com/mvantellingen/python-zeep) package is used to handle connections to the SOAP interface.
+Yardi's API systems are defined using WSDL (Web Services Description Language), which functions as the "documentation" for the endpoints. Each interface (such as Billing & Payments or Common Data) has its own WSDL URL, and when accessed you will find an XML document with all the endpoints available. The endpoints in the SDK are auto-generated from these WSDLs, and the `Client` object connects to a WSDL in order to actually call the endpoint. Under the hood, the [`zeep`](https://github.com/mvantellingen/python-zeep) package is used to handle connections to the SOAP interface.
 
 This means that you need a different client instance for each interface with which you want to interact. If you are working with multiple interfaces, then you will need multiple WSDL variables, so you can extend the `.env` file and load those variables into the respective clients.
 
