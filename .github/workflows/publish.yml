@@ -8,9 +8,10 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v6
-      - run: pip install uv
+      - uses: astral-sh/setup-uv@v8.1.0
       - run: uv build
       - run: uv publish
         env:
