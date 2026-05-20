@@ -87,7 +87,21 @@ Prints a high-level tree structure of the XML response to the terminal or a file
 </figure>
 
 ### `endpoints`
-You can import all endpoint classes from `yardi_sdk.endpoints` and view parameter names and types in order to use them. An endpoint instance is passed to `Client.call()`.
+You can create instances of all endpoint classes using `yardi_sdk.endpoints` and view parameter names and types in order to use them. An endpoint instance is passed to `Client.call()`.
+
+#### Update in 0.3.0: endpoint name clashes
+Endpoint name clashes exist across the Yardi interfaces, for example GetAttachmentNames exists under Vendor Invoicing and Service Requests. These endpoints also require different parameters. To ensure you use the correct endpoint class, add the desired Yardi interface as a submodule:
+
+```python
+# Vendor Invoicing
+endpoint = yardi_sdk.endpoints.vendor_invoicing.GetAttachmentNames(...)
+
+# Service Requests
+endpoint = yardi_sdk.endpoints.service_requests.GetAttachmentNames(...)
+```
+
+The author accepts responsibility for this syntactical awkwardness. Refactoring the SDK to make *all* endpoint instantiation require using the Yardi interface as a submodule (i.e., making a consistent pattern) would break backwards compatibility. Versions <0.3.0 do not appropriately handle name clashes.
+
 
 ## Vendors
 If you are a [Yardi interface vendor](https://www.yardi.com/services/interfaces/standard-interface-options/), you are likely calling APIs across several Yardi accounts, since you have many Yardi customers. Thus, a single `.env` file with one Yardi username and password would not be sufficient. In your case, it is recommended to retrieve Yardi credentials of your customers (from wherever you keep them) and pass them into respective `Client` instances, one client for each customer. This is no worse than having to use a different `requests.HTTPBasicAuth` instance for each customer if you were to build the XML request documents manually (i.e., without an SDK).
